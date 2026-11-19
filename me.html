@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ประวัติส่วนตัว</title>
+  <title>Portfolio</title>
   <link href="https://googleapis.com" rel="stylesheet">
   <style>
     * {
@@ -14,119 +14,338 @@
     }
 
     body {
-      /* พื้นหลังไล่สีครีมอ่อนผสมฟ้าพาสเทลบางๆ */
-      background: linear-gradient(135deg, #fdfbf7 0%, #e6f2ff 100%);
+      background: linear-gradient(120deg, #fdfbf7 0%, #e1f0ff 50%, #f7f4eb 100%);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 40px 20px;
+      color: #2b4865;
     }
 
-    .profile-card {
-      /* ตัวการ์ดสีครีมนวล */
+    /* กล่องหลักแบ่ง 2 ฝั่ง (ซ้าย-ขวา) */
+    .portfolio-wrapper {
+      display: flex;
+      flex-direction: row;
       background: #fffdf9;
       width: 100%;
-      max-width: 450px;
-      border-radius: 22px;
-      box-shadow: 0 10px 30px rgba(137, 176, 214, 0.18);
+      max-width: 850px;
+      border-radius: 28px;
+      box-shadow: 0 20px 50px rgba(120, 165, 210, 0.22);
       overflow: hidden;
-      border: 1px solid #e3effa;
+      border: 2px solid #ffffff;
     }
 
-    .card-header {
-      /* ส่วนหัวสีฟ้าพาสเทล */
-      background: linear-gradient(135deg, #b8dcff 0%, #d6ecff 100%);
-      padding: 35px 25px;
-      text-align: center;
-      color: #2c4c6e;
+    /* ฝั่งซ้าย: แถบข้อมูลเด่นสีฟ้าพาสเทล */
+    .sidebar {
+      width: 38%;
+      background: linear-gradient(160deg, #b5d9ff 0%, #d7ecff 100%);
+      padding: 45px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #1f3c58;
     }
 
-    .card-header h1 {
-      font-size: 24px;
+    .badge-role {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
       font-weight: 600;
-      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+      width: fit-content;
     }
 
-    .card-header p {
-      font-size: 14px;
-      color: #4f7396;
+    .sidebar h1 {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
     }
 
-    .card-body {
-      padding: 30px 25px;
+    .sidebar .nickname {
+      font-size: 16px;
+      color: #3f668c;
+      font-weight: 500;
+      margin-bottom: 25px;
     }
 
-    .info-item {
+    .quote-box {
+      background: rgba(255, 253, 249, 0.65);
+      padding: 18px;
+      border-radius: 16px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #35587a;
+      border-left: 4px solid #7ab8f5;
+      margin-bottom: 30px;
+    }
+
+    .contact-list {
+      font-size: 13.5px;
+    }
+
+    .contact-list div {
+      margin-bottom: 10px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+    }
+
+    .contact-list span {
+      display: block;
+      font-size: 11px;
+      color: #54799e;
+      font-weight: 600;
+    }
+
+    /* ฝั่งขวา: รายละเอียดเนื้อหาสีครีมอ่อน */
+    .main-content {
+      width: 62%;
+      padding: 45px 40px;
+      background: #fffdf9;
+    }
+
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .section-header h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #244669;
+    }
+
+    .section-header .line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, #cbe4ff 0%, transparent 100%);
+      margin-left: 15px;
+    }
+
+    /* การ์ดข้อมูลย่อยแบบ 2 คอลัมน์ */
+    .info-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .mini-card {
+      background: #f8f5ee;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid #efe9dc;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .mini-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(160, 195, 230, 0.15);
+      background: #f2f8ff;
+      border-color: #d6eaff;
+    }
+
+    .mini-card .title {
+      font-size: 12px;
+      color: #7c8d9e;
+      margin-bottom: 3px;
+    }
+
+    .mini-card .detail {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #2b4865;
+    }
+
+    /* กล่องการศึกษา */
+    .edu-box {
+      background: #f2f8ff;
+      padding: 18px 20px;
+      border-radius: 16px;
+      border-left: 5px solid #96c8fa;
+    }
+
+    .edu-box h3 {
+      font-size: 15.5px;
+      font-weight: 600;
+      color: #224163;
+      margin-bottom: 4px;
+    }
+
+    .edu-box p {
+      font-size: 13.5px;
+      color: #547596;
+    }
+
+    /* แถบวัดระดับทักษะ (Skill Bars) */
+    .skill-item {
+      margin-bottom: 14px;
+    }
+
+    .skill-info {
       display: flex;
       justify-content: space-between;
-      padding: 14px 0;
-      border-bottom: 1px solid #f2eee6;
-      font-size: 15px;
+      font-size: 13.5px;
+      font-weight: 500;
+      margin-bottom: 6px;
     }
 
-    .info-item:last-of-type {
-      border-bottom: none;
-    }
-
-    .label {
-      color: #7c8d9e;
-      font-weight: 400;
-    }
-
-    .value {
-      color: #2c4c6e;
-      font-weight: 600;
-    }
-
-    .card-footer {
-      padding: 0 25px 30px;
-      text-align: center;
-    }
-
-    .btn-link {
-      display: inline-block;
+    .progress-bg {
       width: 100%;
-      padding: 12px 20px;
-      background-color: #9ecbff;
-      color: #234161;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 14px;
-      transition: background 0.3s ease;
+      height: 8px;
+      background: #efeae0;
+      border-radius: 10px;
+      overflow: hidden;
     }
 
-    .btn-link:hover {
-      background-color: #84bcfa;
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #8ec5fc 0%, #6eb0f5 100%);
+      border-radius: 10px;
+    }
+
+    /* ป้ายงานอดิเรก */
+    .hobby-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .pill {
+      background: #f5efe4;
+      color: #4f6375;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* รองรับหน้าจอมือถือ */
+    @media (max-width: 720px) {
+      .portfolio-wrapper {
+        flex-direction: column;
+      }
+      .sidebar, .main-content {
+        width: 100%;
+      }
+      .info-cards {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="profile-card">
-    <div class="card-header">
-      <h1>ประวัติส่วนตัว</h1>
-      <p>Personal Profile</p>
+  <div class="portfolio-wrapper">
+    <!-- ฝั่งซ้าย -->
+    <div class="sidebar">
+      <div>
+        <div class="badge-role">PERSONAL PROFILE</div>
+        <h1>ปวริศา ชูรัตน์</h1>
+        <div class="nickname">ชื่อเล่น : ครีม (อายุ 19 ปี)</div>
+
+        <div class="quote-box">
+          "[ใส่คำแนะนำตัวสั้นๆ]"
+        </div>
+      </div>
+
+      <div class="contact-list">
+        <div>
+          <span>EMAIL</span>
+          [pawarisa200227@gmail.com]
+        </div>
+        <div>
     </div>
 
-    <div class="card-body">
-      <div class="info-item">
-        <span class="label">ชื่อ - นามสกุล</span>
-        <span class="value">นางสาวปวริศา ชูรัตน์</span>
+    <!-- ฝั่งขวา -->
+    <div class="main-content">
+      <!-- ข้อมูลทั่วไป -->
+      <div class="section">
+        <div class="section-header">
+          <h2>ข้อมูลส่วนตัว</h2>
+          <div class="line"></div>
+        </div>
+        <div class="info-cards">
+          <div class="mini-card">
+            <div class="title">วัน / เดือน / ปีเกิด</div>
+            <div class="detail">[16 มกราคม 2550]</div>
+          </div>
+          <div class="mini-card">
+            <div class="title">สัญชาติ / ศาสนา</div>
+            <div class="detail">ไทย / พุทธ</div>
+          </div>
+        </div>
       </div>
-      <div class="info-item">
-        <span class="label">ชื่อเล่น</span>
-        <span class="value">ครีม</span>
-      </div>
-      <div class="info-item">
-        <span class="label">อายุ</span>
-        <span class="value">19 ปี</span>
-      </div>
-    </div>
 
-    <div class="card-footer">
-      <a href="./index.html" class="btn-link">ไปยังหน้า index.html</a>
+      <!-- การศึกษา -->
+      <div class="section">
+        <div class="section-header">
+          <h2>ประวัติการศึกษา</h2>
+          <div class="line"></div>
+        </div>
+        <div class="edu-box">
+          <h3>[วิทยาลัยเทคนิคสมุทปราการ]</h3>
+          <p>[ปวส.2] • สาขาวิชา [เทคโนโลยีสารสนเทศ]</p>
+        </div>
+      </div>
+
+      <!-- ทักษะและความสนใจ -->
+      <div class="section">
+        <div class="section-header">
+          <h2>ทักษะและความสนใจ</h2>
+          <div class="line"></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info">
+            <span>HTML & CSS</span>
+            <span>85%</span>
+          </div>
+          <div class="progress-bg">
+            <div class="progress-fill" style="width: 85%;"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info">
+            <span>Git & GitHub</span>
+            <span>80%</span>
+          </div>
+          <div class="progress-bg">
+            <div class="progress-fill" style="width: 80%;"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info">
+            <span>[ทักษะอื่นๆ เช่น การออกแบบ UX/UI]</span>
+            <span>75%</span>
+          </div>
+          <div class="progress-bg">
+            <div class="progress-fill" style="width: 75%;"></div>
+          </div>
+        </div>
+
+        <div class="hobby-tags">
+          <span class="pill">ดูซีรีส์</span>
+          <span class="pill">ฟังเพลง</span>
+          <span class="pill">[เพิ่มงานอดิเรก]</span>
+        </div>
+      </div>
     </div>
   </div>
 
