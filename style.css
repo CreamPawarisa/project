@@ -42,7 +42,7 @@ body {
 
 .badge {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 222, 236, 0.85);
   color: #5b7c9e;
   font-size: 12px;
   font-weight: 700;
