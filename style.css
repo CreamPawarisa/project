@@ -1,3 +1,12 @@
+body {
+  background: linear-gradient(135deg, #f7eedc 0%, #faebd2 50%, #d6ebff 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  color: #4a5568;
+}
 * {
   box-sizing: border-box;
   margin: 0;
