@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ประวัติส่วนตัว</title>
+  <link href="https://googleapis.com" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    body {
+      /* พื้นหลังไล่สีครีมอ่อนผสมฟ้าพาสเทลบางๆ */
+      background: linear-gradient(135deg, #fdfbf7 0%, #e6f2ff 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .profile-card {
+      /* ตัวการ์ดสีครีมนวล */
+      background: #fffdf9;
+      width: 100%;
+      max-width: 450px;
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(137, 176, 214, 0.18);
+      overflow: hidden;
+      border: 1px solid #e3effa;
+    }
+
+    .card-header {
+      /* ส่วนหัวสีฟ้าพาสเทล */
+      background: linear-gradient(135deg, #b8dcff 0%, #d6ecff 100%);
+      padding: 35px 25px;
+      text-align: center;
+      color: #2c4c6e;
+    }
+
+    .card-header h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .card-header p {
+      font-size: 14px;
+      color: #4f7396;
+    }
+
+    .card-body {
+      padding: 30px 25px;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid #f2eee6;
+      font-size: 15px;
+    }
+
+    .info-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .label {
+      color: #7c8d9e;
+      font-weight: 400;
+    }
+
+    .value {
+      color: #2c4c6e;
+      font-weight: 600;
+    }
+
+    .card-footer {
+      padding: 0 25px 30px;
+      text-align: center;
+    }
+
+    .btn-link {
+      display: inline-block;
+      width: 100%;
+      padding: 12px 20px;
+      background-color: #9ecbff;
+      color: #234161;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-link:hover {
+      background-color: #84bcfa;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-card">
+    <div class="card-header">
+      <h1>ประวัติส่วนตัว</h1>
+      <p>Personal Profile</p>
+    </div>
+
+    <div class="card-body">
+      <div class="info-item">
+        <span class="label">ชื่อ - นามสกุล</span>
+        <span class="value">นางสาวปวริศา ชูรัตน์</span>
+      </div>
+      <div class="info-item">
+        <span class="label">ชื่อเล่น</span>
+        <span class="value">ครีม</span>
+      </div>
+      <div class="info-item">
+        <span class="label">อายุ</span>
+        <span class="value">19 ปี</span>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <a href="./index.html" class="btn-link">ไปยังหน้า index.html</a>
+    </div>
+  </div>
+
+</body>
+</html>
